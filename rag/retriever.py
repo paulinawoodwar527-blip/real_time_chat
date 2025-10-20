@@ -3,7 +3,7 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 import json
 from answer_generator import make_rag_prompt
-
+from speech_recognizer import transcribe_qestion
 # Load documents or metadata from JSON
 with open("metadata.json", "r") as file:
     metadata = json.load(file)
@@ -59,7 +59,8 @@ def search(query, top_k=5):
 
 if __name__ == "__main__":
     # Example query
-    query_text = "what is most challengin AI project you've built?"
+    # query_text = "what is most challengin AI project you've built?"
+    query_text = transcribe_qestion()
     results = search(query_text)
     for text, score in results:
         print(f"Score: {score:.4f}, Text: {text[:200]}...")

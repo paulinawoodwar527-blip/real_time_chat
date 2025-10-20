@@ -1,4 +1,5 @@
 from speech_recorder import detect_question
+import speech_recognition as sr
 
 def transcribe_qestion():
 
